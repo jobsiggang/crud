@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>나의 웹서비스 개발</title>
+  </head>
+  <body>
+    <h1 id="id_id">변경할 아이디가 들어갈 부분</h1>
+    <form
+      action="아이디와함께 업데이트할 주소로 이동"
+      method="POST"
+      id="id_form"
+      enctype="multipart/form-data"
+    >
+      <label>이름</label>
+      <input type="text" id="id_name" name="name" />
+      <label>글제목</label>
+      <input type="text" id="id_title" name="title" /><br />
+      <label>설명</label>
+      <textarea
+        name="content"
+        style="width: 50%; height: 200px"
+        id="id_content"
+      >
+      </textarea>
+      <br />
+      <label>사진선택</label>
+      <input type="file" id="id_file" name="file" /><br />
+      <button type="submit">수정저장</button>
+    </form>
+  </body>
+  <script>
+    let data={{selected|tojson}};
+     document.querySelector('#id_id').innerHTML=`아이디 ${data['id']}의 글내용을 수정하세요`;
+     document.querySelector('#id_name').value=data['name'];
+     document.querySelector('#id_title').value=data['title'];
+     document.querySelector('#id_content').innerHTML=data['content'];// textarea는 태그 사이에 값이 들어감
+     document.querySelector('#id_form').action=`/update/${data['id']}`; //업데이트할 주소와 아이디가들어감
+  </script>
+</html>

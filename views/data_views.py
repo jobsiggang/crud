@@ -32,7 +32,7 @@ def dumptoJson():  # json파일에 수시로 업데이트 저장하는 함수 �
 
 
 @bp.route('/create', methods=['GET', 'POST'])  # 입력하는 부분
-def usercreate():
+def create():
     if request.method == 'POST':  # 폼의 데이터를 가지고 post방식으로 들어옴.
         id = datetime.now().strftime("%y%m%d%H%M%S")  # 시간을 고유id값으로 사용
         name = request.form['name']
